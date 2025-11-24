@@ -1,0 +1,2 @@
+/* small custom tweaks, rest is done with Tailwind */
+body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }

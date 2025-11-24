@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Excuse Engine</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide icons (browser) -->
+  <script src="https://unpkg.com/lucide/dist/lucide.min.js"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}" />
+</head>
+<body class="min-h-screen bg-indigo-50 font-sans text-slate-800 flex items-center justify-center p-4">
+<div class="w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden border border-indigo-100 transition-all hover:shadow-indigo-200/50">
+  <!-- Header -->
+  <div class="bg-indigo-600 p-6 text-center relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full bg-indigo-600 opacity-50 z-0">
+      <div class="absolute -top-10 -right-10 w-32 h-32 bg-white opacity-10 rounded-full blur-2xl"></div>
+      <div class="absolute top-10 -left-10 w-24 h-24 bg-purple-500 opacity-20 rounded-full blur-xl"></div>
+    </div>
+
+    <div class="relative z-10 flex flex-col items-center">
+      <div class="bg-white/20 p-3 rounded-2xl mb-3 backdrop-blur-sm">
+        <i data-lucide="message-circle" class="text-white" style="width:32px;height:32px"></i>
+      </div>
+      <h1 class="text-2xl font-bold text-white tracking-wide">Excuse Engine</h1>
+      <p class="text-indigo-200 text-sm mt-1">Get out of anything, instantly.</p>
+    </div>
+  </div>
+
+  <!-- Input Form -->
+  <div class="p-6 space-y-5">
+    <div class="space-y-2">
+      <label class="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1 flex items-center gap-1">
+        <i data-lucide="user" style="width:14px;height:14px"></i>
+        Who is it for?
+      </label>
+      <input id="recipient" type="text" placeholder="e.g. Boss, Mom, Gym Buddy..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all" />
+    </div>
+
+    <div class="space-y-2">
+      <label class="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1 flex items-center gap-1">
+        <i data-lucide="coffee" style="width:14px;height:14px"></i>
+        Real Reason (Be Honest)
+      </label>
+      <textarea id="reason" rows="2" placeholder="e.g. I'm lazy, I'm broke, I want to watch Netflix..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all resize-none"></textarea>
+    </div>
+
+    <div class="space-y-2">
+      <label class="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1 flex items-center gap-1">
+        <i data-lucide="zap" style="width:14px;height:14px"></i>
+        Select Vibe
+      </label>
+      <div class="grid grid-cols-3 gap-2">
+        <button type="button" class="tone-btn py-2 px-1 text-sm rounded-lg font-medium bg-indigo-100 text-indigo-700 border border-indigo-200" data-tone="Polite">Polite</button>
+        <button type="button" class="tone-btn py-2 px-1 text-sm rounded-lg font-medium bg-white border border-slate-200 text-slate-500 hover:bg-slate-50" data-tone="Dramatic">Dramatic</button>
+        <button type="button" class="tone-btn py-2 px-1 text-sm rounded-lg font-medium bg-white border border-slate-200 text-slate-500 hover:bg-slate-50" data-tone="Funny">Funny</button>
+      </div>
+    </div>
+
+    <button id="generateBtn" class="w-full py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 mt-4 shadow-lg transition-transform active:scale-95 bg-indigo-600 hover:bg-indigo-700 text-white shadow-indigo-300">
+      <i data-lucide="send" style="width:20px;height:20px"></i>
+      <span id="generateLabel">Generate Excuse</span>
+    </button>
+  </div>
+
+  <!-- Result Area -->
+  <div id="resultArea" class="hidden bg-slate-50 p-6 border-t border-slate-100">
+    <div class="flex justify-between items-center mb-3">
+      <span class="text-xs font-bold text-indigo-500 uppercase">Your Excuse:</span>
+      <button id="copyBtn" class="text-slate-400 hover:text-indigo-600 transition-colors flex items-center gap-1 text-xs font-medium">
+        <span id="copyLabel">Copy Text</span>
+        <i data-lucide="copy" style="width:14px;height:14px"></i>
+      </button>
+    </div>
+
+    <div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm border border-slate-200 relative">
+      <p id="excuseText" class="text-slate-700 text-lg leading-relaxed"></p>
+      <div class="absolute -top-[1px] -left-[9px] w-0 h-0 border-t-[10px] border-t-white border-l-[10px] border-l-transparent border-b-0"></div>
+      <div class="absolute -top-[1px] -left-[10px] w-0 h-0 border-t-[10px] border-t-slate-200 border-l-[10px] border-l-transparent border-b-0 -z-10"></div>
+    </div>
+
+    <div class="mt-4 text-center">
+      <button id="tryAgainBtn" class="text-sm text-slate-500 hover:text-indigo-600 underline decoration-indigo-200 underline-offset-4">Try a different one</button>
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script>lucide && lucide.replace()</script>
+</body>
+</html>

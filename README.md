@@ -135,4 +135,4 @@ For production, use a secure environment variable setup
 
 # 📄 License
 
-MIT License — Free to use, modify, and distribute.
+

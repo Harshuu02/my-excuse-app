@@ -9,7 +9,7 @@ print("Loaded GEMINI_API_KEY:", os.getenv("GEMINI_API_KEY"))
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")  # set in environment
 GEMINI_MODEL_ENDPOINT = (
     "https://generativelanguage.googleapis.com/v1beta/models/"
-    "gemini-2.5-flash-preview-09-2025:generateContent"
+    "gemini-2.5-flash:generateContent"
 )
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
